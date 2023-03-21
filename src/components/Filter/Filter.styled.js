@@ -1,24 +1,27 @@
 import styled from 'styled-components';
 
-export const FilterWrapper = styled.div`
+export const StyledLabel = styled.label`
   display: flex;
+  gap: 10px;
   flex-direction: column;
-  align-content: flex-start;
-  width: 400px;
-  margin-bottom: 15px;
-`;
+  width: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  color: #579bb1;
+  font-size: 24px;
+  font-weight: 600;
 
-export const FilterTitle = styled.p`
-  margin-top: 0;
-  margin-bottom: 5px;
-  font-size: 22px;
-  color: rgb(87, 155, 177);
-`;
+  & span {
+    font-size: 20px;
+    font-weight: 400;
+  }
 
-export const FilterInput = styled.input`
-  width: 180px;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
-  padding: 3px 6px;
-  font-size: 16px;
+  & input {
+    width: 200px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 16px;
+  }
 `;

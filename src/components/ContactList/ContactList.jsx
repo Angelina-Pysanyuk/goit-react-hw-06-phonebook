@@ -1,39 +1,32 @@
-import React from 'react';
+import Contact from 'components/Contact/Contact';
 import PropTypes from 'prop-types';
-import { ListWrapper, ListItem, DeleteButton } from './ContactList.styled';
+import { StyledLi, StyledUl } from './ContactList.styled';
+import { getContacts, getFilter } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 
-const ContactList = ({ getFilteredContacts, onDelete }) => {
-  const contacts = getFilteredContacts();
+const ContactList = () => {
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
+  const visibleContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
   return (
-    <ListWrapper>
-      <ul>
-        {contacts.map(({ id, name, number }) => {
+    <div>
+      <StyledUl>
+        {visibleContacts.map(contact => {
           return (
-            <ListItem key={id}>
-              <span>
-                <span>{name}</span>: <span>{number}</span>
-              </span>
-              <DeleteButton type="button" onClick={() => onDelete(id)}>
-                Delete
-              </DeleteButton>
-            </ListItem>
+            <StyledLi key={contact.name}>
+              <Contact contact={contact} />
+            </StyledLi>
           );
         })}
-      </ul>
-    </ListWrapper>
+      </StyledUl>
+    </div>
   );
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  onDelete: PropTypes.func.isRequired,
-  isFilter: PropTypes.number,
+  contacts: PropTypes.array,
 };
 
 export default ContactList;

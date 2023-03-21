@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 500px;
   padding: 10px;
   margin-bottom: 30px;
   border: 1px solid lightgrey;
@@ -11,10 +11,18 @@ export const FormWrapper = styled.div`
   font-size: 20px;
 `;
 
-export const Form = styled.form`
+export const StyledForm = styled.form`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+`;
+
+export const StyledInput = styled.input`
+  width: 150px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 16px;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -23,7 +31,12 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
 `;
 
-export const ButtonAdd = styled.button`
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const StyledBtn = styled.button`
   width: 100px;
   height: 65px;
   border: none;
@@ -40,17 +53,4 @@ export const ButtonAdd = styled.button`
     background-color: #579bb1;
     color: #ffffff;
   }
-`;
-
-export const Label = styled.label`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const FormInput = styled.input`
-  width: 180px;
-  border: 1px solid lightgrey;
-  border-radius: 4px;
-  padding: 3px 6px;
-  font-size: 16px;
 `;
