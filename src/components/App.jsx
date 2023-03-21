@@ -1,12 +1,8 @@
 import ContactList from './ContactList/ContactList';
 import Phonebook from './Phonebook/Phonebook';
 import Filter from './Filter/Filter';
-import { getContacts } from 'redux/selectors';
-import { useSelector } from 'react-redux';
 
 const App = () => {
-  const contacts = useSelector(getContacts);
-
   return (
     <div
       style={{
